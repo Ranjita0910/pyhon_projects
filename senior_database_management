@@ -1,0 +1,217 @@
+import sqlite3
+##to connect database
+connection = sqlite3.connect('project.db')
+##create cusrsor object to interact with database
+cursor=connection.cursor()
+
+##create table of seniors
+# cursor.execute('''create table if not exists seniors(
+#                id integer primary key,
+#                name text,
+#                age integer,
+#                email text,
+#                password integer
+#              )
+#              ''')
+
+# # #create healthrecords table
+# cursor.execute('''
+#                create table if not exists health_records
+#                (id integer primary key,
+#                condition text,
+#                date text,
+#                foreign key("id") references seniors(id)
+#                )''')
+
+# #create medications table
+# cursor.execute('''
+#                create table if not exists medications(
+#                id integer primary key,
+#                medicine text,
+#                schedule text,
+#                foreign key("id") references seniors(id)
+#                )''')
+
+# # #create emergency contacts table
+# cursor.execute('''
+#                create table if not exists emergency_contacts(
+#                id integer primary key,
+#                name text,
+#                phone text,
+#                relationship text,
+#                foreign key(id) references seniors(id)
+#                )
+#                ''')
+# ##create activitylogs table
+# cursor.execute('''
+#                create table if not exists activitylogs (
+#                id integer primary key,
+#                activity text,
+#                foreign key("id") references seniors(id)
+#                )
+#                ''')
+
+# ##insering data to all tables
+# ##inset seniors table
+# cursor.execute('''
+#                insert into seniors(id, name, age, email, password)
+#                values(30,'raju',65,'raju@gmail.com',1234),
+#                (31,'Ramesh Kumar',72,'ramesh.kumar@example.com',2345),
+#                (32,'Shanta Rao',69, 'shanta.rao@example.com',3456),
+#                (33,'Suresh Patel',70, 'suresh.patel@example.com',4567),
+#                (34,'Malini Iyer',68, 'malini.iyer@example.com',5678),
+#                (35,'Nandini Reddy',71, 'nandini.reddy@example.com',6789),
+#                (36,'Priya Sharma',73, 'priya.sharma@example.com',7891),
+#                (37,'Rajesh Menon',72, 'rajesh.melon@example.com',8912),
+#                (38,'Geeta Kumar',70, 'Geeta.Kumar@example.com',9123),
+#                (39,'Vikram Desai',71, 'vikram.desai@example.com',9876),
+#                (40,'Anajali Naidu',69, 'anjali.naidu@example.com',8765),
+#                (41,'Meera Rao', 68, 'meera.rao@example.com',7654),
+#                (42,'Vivek Iyer', 73, 'vivek.iyer@example.com',6543),
+#                (43,'Arvind Deshpand',75, 'arvind.deshpand@example.com',5432),
+#                (44,'Priyanka Iyer',69, 'priyanka.iyer@example.com',4321)
+
+
+#                ''')
+# ##insert health records table
+# cursor.execute('''
+#                insert into health_records(id,condition,date)
+#                values(30,'bp','2024-06-26'),
+#                (31,'hypertension','2024-06-27'),
+#                (32,'hypertension','2024-06-26'),
+#                (33,'diabetes','2024-06-28'),
+#                (34,'hypertension','2024-06-01'),
+#                (35,'hyperlipidemia','2024-06-15'),
+#                (36,'atrial fibrillation','2024-06-16'),
+#                (37,'copd','2024-06-13'),
+#                (38,'atrial fibrillation','2024-06-26'),
+#                (39,'diabetes','2024-05-16'),
+#                (40,'hypertension','2024-04-16'),
+#                (41,'hypertension','2024-06-12'),
+#                (42,'atrial fibrillation','2024-06-22'),
+#                (43,'hypertension','2024-02-12'),
+#                (44,'hypertension','2024-03-12')
+
+# ''')
+
+# #insert medications table
+# cursor.execute('''
+#                insert into medications(id,medicine,schedule)
+#                values(30,'ace inhibitor','every day night'),
+#                (31,'amlodipine','8:00am'),
+#                (32,'atorvastatin','8:30am'),
+#                (33,'insulin','9:30am'),
+#                (34,'aspirin','10:30am'),
+#                (35,'metoprolol','8:30pm'),
+#                (36,'simvastatin','8:00pm'),
+#                (37,'warfrain','8:30pm'),
+#                (38,'albuterol','8:00am'),
+#                (39,'clopidogrel','8:45pm'),
+#                (40,'metformin','7:30am'),
+#                (41,'losartan','9:30am'),
+#                (42,'lisinopril','9:00am'),
+#                (43,'warfrain','7:30am'),
+#                (44,'metoprolol','8:30am')
+               
+                        
+
+#                ''')
+
+
+# # #insert emercency contacts record
+# cursor.execute('''
+#                insert into emergency_contacts(id,name,phone, relationship)
+#                values(30,'Manu','2345676','son'),
+#                (31,'Geeta Kumar','2355676','spouse'),
+#                (32,'Vikram Rao','2445676','spouse'),
+#                (33,'Rina Patel','2385676','spouse'),
+#                (34,'Vivek Iyer','2347676','spouse'),
+#                (35,'Rajesh Reddy','2345666','child'),
+#                (36,'Deepak Sharma','2445676','spouse'),
+#                (37,'Meera Melom','4375676','spouse'),
+#                (38,'Ramesh Kumar','8345676','spouse'),
+#                (39,'Priyanka Desai','9345676','spouse'),
+#                (40,'Siddarth Naidu','2845676','child'),
+#                (41,'Vikram Rao','7345676','spouse'),
+#                (42,'Malini Iyer','7345676','spouse'), 
+#                (43,'Meera Deshapande','9345676','spouse'),
+#                (44,'Karthik Iyer','6345676','spouse')
+
+#                ''')
+
+# ##insert daily activitylogs table
+# cursor.execute('''
+#                insert into activitylogs(id,activity)
+#                values(30,'yoga'),
+#                (31,'walk'),
+#                (32,'yoga'),
+#                (33,'walk'),
+#                (34,'attend cardiac rehabilitation'),
+#                (35,'yoga session morning'),
+#                (36,'morning brisk walk'),
+#                (37,'yoga'),
+#                (38,'breathing exercise'),
+#                (39,'morning walk'),
+#                (40,'morning exercise'),
+#                (41,'morning walk'),
+#                (42,'morning exercise'),
+#                (43,'morning walking'),
+#                (44,'yoga')
+#                ''')
+
+
+
+# # ##commits
+# connection.commit()
+
+# ##connecting all data
+# cursor.execute('select * from seniors')
+# seniors=cursor.fetchall()
+
+# cursor.execute('select * from health_records')
+# health_records=cursor.fetchall()
+
+# cursor.execute('select * from medications')
+# medications=cursor.fetchall()
+
+# cursor.execute('select * from emergency_contacts')
+# emergency_contacts=cursor.fetchall()
+
+# cursor.execute('select*from activitylogs')
+# activitylogs=cursor.fetchall()
+
+# # #display all tables
+# print('seniors:')
+# for senior in seniors:
+#     print(senior)
+
+# print('\nhealth_records:')
+# for health_record in health_records:
+#     print(health_record)
+
+# print('\nmedications:')
+# for medication in medications:
+#     print(medication)
+
+# print('\nemegency_contacts:')
+# for emergency_contact in emergency_contacts:
+#     print(emergency_contact)
+
+# print('\nactivitylogs:')
+# for activitylog in activitylogs:
+#     print(activitylog)
+
+# # close connection
+# connection.close()
+
+
+
+
+
+
+
+
+
+
+
+ 
